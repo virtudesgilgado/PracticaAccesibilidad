@@ -1,0 +1,303 @@
+/* Variables donde se definen los colores base */
+  :root {
+    --color-texto: #000;
+    --color-fondo: #fff;
+    --color-principal: #1a5276;
+    --color-secundario: #001f3f;
+    --color-placeholder: #767676;
+    --color-borde: #777;
+    --color-boton-limpiar: #333;
+    --color-boton-limpiar-texto: #1c1c1c;
+  }
+
+  /* --- Estilo general --- */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    line-height: 2; /*Aumenta el espacio entr las lineas*/
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: var(--color-texto);
+  }
+
+  /*CABECERA*/
+  .formularioRegistro
+  {
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: var(--color-secundario);
+  }
+
+  /*TITULO PRINCIPAL*/
+  #titulo-registro
+  {
+    font-size: 2.3em;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  /*ESTILOS DE LOS COMANDOS / ATAJOS DEL TECLADO*/
+  kbd /*keyboard (indica texto que el usuario debe introducir)*/
+  {
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 1em;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+  }
+
+  /* DESCRIPCIÓN GENERAL DEL FORMULARIO */
+  .descripcion-general 
+  {
+    max-width: 800px; 
+    margin: 0 auto; 
+    font-size: 0.95rem; 
+    line-height: 1.7; 
+    color: #ffffff;
+  }
+
+  /* RESALTA LA PALABRAS EN NEGRITA */
+  .descripcion-general strong
+  {
+    font-weight: 700;
+  }
+
+  /* INSTRUCCIONES DE USO */
+  .instrucciones {
+    background-color: #e0f7fa;
+    border: 2px solid #006064;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0;
+  }
+
+  /* TÍTULO DE LAS INSTRUCCIONES */
+  #titulo-instrucciones
+  {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding: 0 0 0 25px;
+    color: #006064;
+  }
+
+  /* ESTILO DEL CONTENIDO PRINCIPAL */
+  main
+  {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  /* ESTILO DE LOS FIELDSET */
+  fieldset {
+    border: 2px solid #999;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+
+  /* ESTILO DE LOS LEYENDS DE LOS FIELDSET */
+  fieldset legend
+  {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #001f3f;
+  }
+
+  /* ESTILO DE LOS FIELDSET DE SEXO Y SERVICIOS */
+  .fieldset-sexo, .fieldset-servicios 
+  {
+    border: 1px dashed #999;
+    padding: 15px;
+  }
+
+  /* ESTILO DE LOS LABELS*/
+  label
+  {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-texto);
+  }
+
+  /* ESTILO DE LOS LEYENDS DE LOS FIELDSET DE SEXO Y SERVICIOS */
+  .fieldset-sexo legend, .fieldset-servicios legend
+  {
+    font-weight: bold;
+    color: #000;
+  }
+
+  /* TÍTULO DE LOS TEMAS DE INTERÉS */
+  .titulo-temas
+  {
+    padding-left: 25px;
+    margin: 0 0 15px 0;
+    color: #333;
+  }
+
+  /* ESTILO DE LOS MENSAJES DE AYUDA */
+  .ayuda
+  {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 10px;
+    background-color: #fff9c4;
+    border-left: 4px solid #fbc02d;
+    padding: 8px 12px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ESTILO DE LOS GRUPOS DE INPUTS */
+  .grupo-input 
+  {
+    padding: 10px 25px;
+    margin-bottom: 10px;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    border-bottom: 1px solid var(--color-borde);
+  }
+
+  /* ESTILO DE LOS GRUPOS DE INPUTS OBLIGATORIOS */
+  .grupo-input.requerido,
+  .fieldset-sexo.requerido {
+    border-left: 4px solid #cc0000;
+  }
+
+  /* ESTILO DE LAS OPCIONES DE LOS SELECT */
+  .grupo-input option
+  {
+    font-size: 16px;
+  }
+
+  /* HOVER PARA LOS INPUTS, SELECT Y TEXTAREA */
+  .grupo-input select:hover, 
+  .grupo-input textarea:hover, 
+  .grupo-input input[type="text"]:hover
+  {
+   border-color: #2e86c1; 
+   background-color: #f0f8ff;
+  }
+
+  /* ESTILO DE LOS INPUTS, SELECT Y TEXTAREA */
+  input[type="text"], select, textarea
+  {
+    width: 100%; /* Hace que el campo ocupe todo el ancho del contenedor */
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Hace que el width: 100% incluya el padding y el borde dentro del ancho total. */
+    border: 2px solid #777; 
+    font-size: 16px;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    border-radius: 4px;
+  }
+
+  /* HOVER Y FOCUS PARA LOS INPUTS, SELECT Y TEXTAREA */
+  input[type="text"]:hover,
+  select:hover,
+  textarea:hover,
+  input:focus,
+  select:focus,
+  textarea:focus
+  {
+    border-color: var(--color-principal);
+    background-color: #f0f8ff;
+    outline: 3px solid var(--color-principal); /* Hace que resalte el campo con un borde más grueso al hacer focus */
+    box-shadow: 0 0 5px rgba(26,82,118,0.5);
+  }
+
+  /* ESTILO DE LOS LABELS DE LOS CAMPOS OBLIGATORIOS */
+  label.obligatorio::after
+  {
+    content: " *";
+    color: #cc0000;
+    font-weight: bold;
+  }
+
+  /* ESTILO DE LOS BOTONES */
+  .contenedor-botones 
+  {
+    display: flex; /* Para alinear los botones horizontalmente */
+    justify-content: center;/* Centra los botones horizontalmente */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite que los botones se ajusten en pantallas pequeñas */
+  }
+
+  /* ESTILO OBSERVACIONES */
+  #observaciones
+  {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    color: #1A1A1A;
+    background-color: #ffffff;
+    border: 2px solid #333333;
+    font-size: 16px;
+  }
+
+  /* ESTILO DE LOS PLACEHOLDERS */
+  input::placeholder
+  {
+    color: var(--color-placeholder);
+  }
+
+  /* ESTILO DE LOS PLACEHOLDERS DE LAS OBSERVACIONES */
+  #observaciones::placeholder
+  {
+    color: var(--color-placeholder);
+    opacity: 1; /* Para que el placeholder sea completamente visible */
+  }
+
+  /* ESTILO DE LOS BOTONES */
+  .boton 
+  {
+    width: 150px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+  }
+
+  /* ESTILO DE LOS BOTONES ENVIAR Y LIMPIAR */
+  .boton-enviar 
+  {
+    background-color: var(--color-principal);
+    color: var(--color-fondo);
+  }
+
+  .boton-limpiar 
+  {
+    background-color: var(--color-fondo);
+    color: var(--color-boton-limpiar-texto);
+    border: 2px solid var(--color-boton-limpiar);
+  }
+
+  /* HOVER PARA LOS BOTONES ENVIAR Y LIMPIAR */
+  .boton-enviar:hover 
+  {
+    background-color: #0e3a55;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(26,82,118,0.35);
+  }
+
+  .boton-limpiar:hover 
+  {
+    background-color: #f4f6f9; 
+    color: var(--color-texto);
+    border-color: #1c1c1c;
+  }

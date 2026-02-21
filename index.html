@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<!-- Librería de iconos Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Formulario Accesibilidad</title>
+</head>
+<body>
+<header class="formularioRegistro">
+  <h1 id="titulo-registro">Formulario de Registro</h1>
+    <p class="descripcion-general">
+      Complete el siguiente formulario para registrar sus datos. Los campos
+        <!--aria-hidden="true" hace que el lector de pantalla no lea el asterisco.
+        Se usa porque el texto ya explica que los campos son obligatorios,
+        así evitamos información repetida para usuarios con discapacidad visual.-->
+      marcados con <span class="obligatorio" aria-hidden="true">*</span> son 
+      <strong>obligatorios</strong>. Puede navegar entre los campos usando la tecla
+      <kbd>Tab</kbd> para avanzar y <kbd>Shift + Tab</kbd> para retroceder.
+    </p>
+</header>
+
+<main>
+ <div class="instrucciones">
+    <h2 id="titulo-instrucciones">Instrucciones de uso</h2>
+      <ul>
+        <li>Use <kbd>Tab</kbd> para moverse al siguiente campo y <kbd>Shift+Tab</kbd> para volver al anterior.</li>
+        <li>Los campos obligatorios están marcados con un asterisco (<span class="obligatorio" aria-hidden="true">*</span>) y un borde rojo a la izquierda.</li>
+        <li>Las listas desplegables se abren con <kbd>Espacio</kbd> o <kbd>Enter</kbd> y se navegan con las flechas <kbd class="arrow">⬆</kbd> <kbd class="arrow">⬇</kbd>.</li>
+        <li>Las casillas de verificación se marcan y desmarcan con <kbd>Espacio</kbd>.</li>
+        <li>Los botones de radio se navegan con las flechas <kbd>⬆</kbd> <kbd>⬇</kbd> <kbd>⬅</kbd> <kbd>⮕</kbd>.</li>
+      </ul>
+ </div>
+  <form action="#" method="post">
+    <!-- DATOS PERSONALES -->
+    <fieldset>
+      <legend><i class="fa-solid fa-user"></i> Sección 1 de 3 — Datos personales</legend>
+
+      <div class="grupo-input requerido">
+        <label for="nombre" class="obligatorio">Nombre</label>
+        <div class="ayuda" id="ayuda-nombre">Introduzca su nombre completo.</div>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Maria" required>
+      </div>
+
+      <div class="grupo-input requerido">
+        <label for="apellido1" class="obligatorio">Primer Apellido</label>
+        <div class="ayuda">Introduzca su primer apellido.</div>
+        <input type="text" id="apellido1" name="apellido1" placeholder="Ej: Gomez" required>
+      </div>
+    
+      <div class="grupo-input requerido">
+        <label for="apellido2" class="obligatorio">Segundo Apellido</label>
+        <div class="ayuda">Introduzca su segundo apellido si lo tienes.</div>
+        <input type="text" id="apellido2" name="apellido2" placeholder="Ej: Ramirez" required>
+      </div>
+    
+      <!--aria-describedby: Permite a los lectores de pantalla leer la descripción detallada 
+      al enfocar el campo, mejorando la experiencia del usuario.-->
+      <fieldset class="fieldset-sexo requerido" aria-describedby="ayuda-sexo">
+          <legend class="obligatorio">Sexo</legend>
+          <div class="ayuda" id="ayuda-sexo">Seleccione su sexo con ratón o teclado.</div>
+
+          <input type="radio" id="hombre" name="sexo" value="hombre" required>
+          <label for="hombre">Hombre</label>
+
+          <input type="radio" id="mujer" name="sexo" value="mujer">
+          <label for="mujer">Mujer</label>
+
+          <input type="radio" id="otro" name="sexo" value="otro">
+          <label for="otro">Otro</label>
+      </fieldset>
+
+      <div class="grupo-input requerido">
+        <label for="edad" class="obligatorio">Grupo de edad</label>
+        <div class="ayuda">Seleccione su rango de edad.</div>
+        <select id="edad" name="edad" required>
+          <option value="">Seleccione</option>
+          <option value="18-25">18-25</option>
+          <option value="26-35">26-35</option>
+          <option value="36-50">36-50</option>
+          <option value="51+">51 o más</option>
+        </select>
+      </div>
+    
+
+      <div class="grupo-input requerido">
+        <label for="pais" class="obligatorio">País de nacimiento</label>
+        <div class="ayuda">Seleccione su país de nacimiento.</div>
+        <select id="pais" name="pais" required>
+          <option value="">Seleccione</option>
+          <option value="AR">Argentina</option>
+          <option value="BO">Bolivia</option>
+          <option value="BR">Brasil</option>
+          <option value="CL">Chile</option>
+          <option value="CO">Colombia</option>
+          <option value="CR">Costa Rica</option>
+          <option value="CU">Cuba</option>
+          <option value="DO">República Dominicana</option>
+          <option value="EC">Ecuador</option>
+          <option value="SV">El Salvador</option>
+          <option value="ES">España</option>
+          <option value="US">Estados Unidos</option>
+          <option value="GT">Guatemala</option>
+          <option value="HN">Honduras</option>
+          <option value="MX">México</option>
+          <option value="NI">Nicaragua</option>
+          <option value="PA">Panamá</option>
+          <option value="PY">Paraguay</option>
+          <option value="PE">Perú</option>
+          <option value="UY">Uruguay</option>
+          <option value="VE">Venezuela</option>
+        </select>
+      </div>
+      
+    </fieldset>
+
+    <!-- DATOS BANCARIOS -->
+    <fieldset>
+      <legend><i class="fa-solid fa-city"></i> Sección 2 de 3 — Datos bancarios</legend>
+
+      <div class="grupo-input requerido">
+        <label for="cuenta" class="obligatorio">Número de cuenta</label>
+        <div class="ayuda">Introduzca su número de cuenta bancaria con todos los digitos.</div>
+        <input type="text" id="cuenta" name="cuenta" pattern="[A-Z]{2}[0-9]{2}(?:\s?[0-9]{4}){5}" placeholder="Ej: ES00 0000 0000 00 0000000000" required>
+      </div>
+
+      <div class="grupo-input requerido">
+        <label for="tipoCuenta" class="obligatorio">Tipo de cuenta</label>
+        <div class="ayuda">Seleccione su tipo de cuenta bancaria que posee.</div>
+        <select id="tipoCuenta" name="tipoCuenta" required>
+          <option value="">-- Seleccione tipo de cuenta --</option>
+          <option value="ahorro">Ahorro</option>
+          <option value="corriente">Corriente</option>
+          <option value="nomina">Nómina</option>
+        </select>
+      </div>
+
+      <div class="grupo-input requerido">
+        <label for="tipoSucursal" class="obligatorio">Tipo de sucursal</label>
+        <div class="ayuda">Indique su tipo de sucursal donde se abrió la cuenta.</div>
+        <select id="tipoSucursal" name="tipoSucursal" required>
+          <option value="">-- Seleccione tipo de sucursal --</option>
+          <option value="tradicional">Banco tradicional</option>
+          <option value="digital">Banco digital</option>
+          <option value="cooperativa">Cooperativa de ahorro y crédito</option>
+          <option value="online">Banco 100% online</option>
+          <option value="microfinanzas">Entidad de microfinanzas</option>
+          <option value="banca_personal">Sucursal de banca personal</option>
+          <option value="banca_empresarial">Sucursal de banca empresarial</option>
+        </select>
+      </div>
+
+      <fieldset class="fieldset-servicios">
+          <legend>Servicios contratados</legend>
+          <div class="ayuda">
+            Marque todos los servicios bancarios que tenga contratados. Puede seleccionar varios.
+            Use <kbd>Espacio</kbd> para marcar o desmarcar cada casilla.
+          </div>
+
+          <input type="checkbox" id="tarjeta" name="servicios" value="tarjeta">
+          <label for="tarjeta">Tarjeta de crédito</label>
+
+          <input type="checkbox" id="seguro" name="servicios" value="seguro">
+          <label for="seguro">Seguro</label>
+
+          <input type="checkbox" id="prestamo" name="servicios" value="prestamo">
+          <label for="prestamo">Préstamo</label>
+
+      </fieldset>
+    </fieldset>
+
+    <!-- OTROS DATOS DE INTERÉS -->
+    <fieldset>
+      <legend><i class="fa-solid fa-table-list"></i> Sección 3 de 3 — Otros datos de interés</legend>
+      <p class="titulo-temas">Seleccione los temas que le interesen y, si lo desea, añada observaciones adicionales. Esta sección es opcional.</p>
+      <div class="grupo-input">
+        <label for="temas">Temas de interés</label>
+        <div class="ayuda">
+          Mantenga pulsada la tecla <kbd>Ctrl</kbd> (o <kbd>Cmd</kbd> en Mac) mientras hace clic para seleccionar varios temas.
+          También puede usar <kbd>Shift + clic</kbd> para seleccionar un rango.
+          Navegue con <kbd>Tab</kbd> y use <kbd>Espacio</kbd> para marcar o desmarcar elementos.
+        </div>
+        <!-- Lista de selección múltiple de temas de interés. 
+        El usuario puede seleccionar varios temas, size="10" muestra 10 opciones visibles sin desplegar. -->
+        <select id="temas" name="temas[]" multiple size="10">
+          <option value="finanzas">Finanzas</option>
+          <option value="inversiones">Inversiones</option>
+          <option value="creditos">Créditos</option>
+          <option value="ahorro">Ahorro</option>
+          <option value="seguros">Seguros</option>
+          <option value="hipotecas">Hipotecas</option>
+          <option value="pensiones">Pensiones y jubilación</option>
+          <option value="criptomonedas">Criptomonedas</option>
+          <option value="bolsa">Bolsa de valores</option>
+          <option value="impuestos">Impuestos y fiscalidad</option>
+          <option value="emprendimiento">Emprendimiento</option>
+          <option value="economia">Economía general</option>
+        </select>
+      </div>
+
+      <div class="grupo-input">
+        <label for="observaciones">Observaciones</label>
+        <textarea id="observaciones" name="observaciones" rows="4" placeholder="Escriba aqui sus observaciones o comentarios adicionales..."></textarea>
+      </div>
+    </fieldset>
+
+    <!-- BOTONES -->
+    <div class="contenedor-botones">
+      <button type="submit" class="boton boton-enviar">Enviar</button>
+      <button type="reset" class="boton boton-limpiar">Limpiar</button>
+    </div>
+
+  </form>
+</main>
+
+
+<!--VALIDACION W3C-->
+<footer>
+  <div class="contenedor-botones">
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+      <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!">
+    </a>
+  </div>
+</footer>
+      
+</body>
+</html>
